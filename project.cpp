@@ -84,6 +84,7 @@ void remove_node_from_root(fib_node *node){
     }
 }
 
+// link 2 fib tree
 void fib_link(fib_heap* H, fib_node* high_node, fib_node* low_node){
     remove_node_from_root(high_node);
     if(low_node->degree==0){ // check if low node has no child
@@ -152,6 +153,7 @@ void add_node_to_root(fib_heap *H, fib_node *new_node){
     }
 }
 
+// add a node become child of another node
 void add_child(fib_node *parent_node, fib_node *child_node){
     if(parent_node->degree == 0){
         parent_node->child = child_node;
@@ -171,6 +173,7 @@ void add_child(fib_node *parent_node, fib_node *child_node){
     parent_node->degree++;
 }
 
+// use when extract min node
 void fib_consolidate(fib_heap* H){
     int node_degree;
     int count=0, root_count=0;
@@ -324,6 +327,8 @@ void fib_heap_delete(fib_heap* H, fib_node* node){
     fib_heap_extract_min(H);
 }
 
+
+// graph define part
 struct adj_node{
     int dst_node;
     int weight;
